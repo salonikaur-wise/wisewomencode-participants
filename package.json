@@ -1,0 +1,45 @@
+{
+  "name": "wwc-apac",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.14"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest",
+    "nodemon": "nodemon --watch pages --exec next dev",
+    "docker:dev": "docker-compose up --build --renew-anon-volumes",
+    "setup:dev": "./setup.sh",
+    "docker:prod": "docker-compose -f docker-compose.prod.yml up -d --build",
+    "knex": "dotenv -e .env.migrate knex"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^6.4.0",
+    "@mui/material": "^6.4.0",
+    "@mui/material-nextjs": "^6.4.0",
+    "dotenv-cli": "^7.3.0",
+    "knex": "^3.1.0",
+    "next": "~15.1.0",
+    "pg": "^8.11.3",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.2",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "nodemon": "^3.0.2",
+    "sqlite3": "^5.1.7"
+  }
+}

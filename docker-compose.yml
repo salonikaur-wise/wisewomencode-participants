@@ -1,0 +1,27 @@
+version: "3.8"
+services: 
+  wise:
+    container_name: wise
+    build:
+      context: .
+      target: dev
+    restart: always
+    command: npm run nodemon
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - 3000:3000
+  wise_pg:
+    image: postgres:16
+    container_name: wise_pg
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=wwc-apac
+      - POSTGRES_PASSWORD=STRONGpass
+      - POSTGRES_DB=wise
